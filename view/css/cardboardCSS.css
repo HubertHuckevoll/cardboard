@@ -1,0 +1,413 @@
+/**
+ * @defgroup   CARDBOARDCSS cardboard CSS
+ *
+ * @brief      This file implements CSS for the major cardboard view components.
+ *
+ * @author     Konstantinmeyer
+ * @date       2021
+ */
+
+/**
+  generic items / resets
+  ___________________________________________________________________
+*/
+
+button, .button
+{
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 3px 15px;
+  font-size: 1.1rem;
+  background: linear-gradient(90deg, #efefef, white);
+  margin-right: 5px;
+}
+
+img
+{
+  border: none;
+  vertical-align: text-bottom;
+}
+
+.smiley {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  display: inline !important;
+  float: none !important;
+  margin: 0 !important;
+  margin-left: 2px !important;
+  margin-right: 2px !important;
+}
+
+/**
+  Sharing buttons
+  _________________________________________________________________________
+*/
+
+.sharingButtons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sharingButtons .sharingButton {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.sharingButtons .sharingButton img {
+  width: 16px;
+  height: 16px;
+}
+
+
+
+/** Page Controller
+  _________________________________________________________
+*/
+.cbPageController
+{
+  font-family: sans-serif;
+  display: flex;
+  justify-content: space-between;
+  clear: both;
+  align-items: center;
+  line-height: 40px;
+}
+
+.cbPageController a, .cbCurrentPage
+{
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 3px 15px;
+  background-color: white;
+  height: 20px;
+  line-height: 20px;
+  font-size: 110%;
+  background: -webkit-linear-gradient(90deg, #efefef, white);
+  background: -moz-linear-gradient(90deg, #efefef, white);
+  margin-right: 5px;
+}
+
+.cbCurrentPage
+{
+  background: -webkit-linear-gradient(270deg, #efefef, white);
+  background: -moz-linear-gradient(270deg, #efefef, white);
+}
+
+.cbPrevPage
+{
+  display: inline-block;
+  text-align: center;
+}
+
+.cbNextPage
+{
+  text-align: center;
+}
+
+/**
+ * Search
+ * __________________________________________________________________
+ */
+#searchBox
+{
+  box-sizing: border-box;
+}
+
+#searchBox input
+{
+  box-sizing: border-box;
+  width: 200px;
+  height: 26px;
+  line-height: 26px;
+  vertical-align: bottom;
+  border: 1px solid #ccc;
+  border-radius: 3px 0 0 3px;
+  border-right: none;
+  font-weight: bold;
+  padding: 2px;
+  background-color: #fff;
+  outline: 0;
+}
+
+#searchBox button
+{
+  height: 26px;
+  vertical-align: bottom;
+  border-radius: 0 3px 3px 0;
+  border: 1px solid #ccc;
+  border-left: none;
+}
+
+#searchResultsList a
+{
+  color: #A00;
+  font-weight: bold;
+}
+
+/* Suchergebnisse */
+#searchResultsBox
+{}
+
+#searchResultsList
+{}
+
+#searchResultsList li
+{
+  margin-bottom: 10px;
+}
+
+#searchResultsList li a
+{}
+
+/**
+ * gallery
+ * ________________________________________________________
+ */
+
+#abcGallery
+{
+  text-align: left;
+  clear: both;
+}
+
+#abcGalleryToolbar
+{
+  float: right;
+  margin: 0px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  vertical-align: middle;
+  padding: 1px 1px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+#abcGalleryDesc
+{
+  font-weight: bold;
+}
+
+#abcGalleryToolbar img, #abcGalleryToolbar a
+{
+  border: none;
+  margin: 2px;
+}
+
+#abcGalleryToolbar a {
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 3px 15px;
+  background-color: white;
+  height: 20px;
+  line-height: 20px;
+  font-size: 1.1rem;
+}
+
+#abcGallerySep
+{
+  border-top: 1px solid #ddd;
+  height: 0px;
+  margin: 0px;
+  padding: 0px;
+  clear: both;
+}
+
+#abcGalleryImgBox
+{
+  margin-top: 20px;
+  text-align: center;
+}
+
+#abcGalleryImgBox a img
+{
+  max-width: 100%;
+}
+
+/*
+  Kommentare
+  _________________________________________________________
+*/
+
+#commentsBox
+{
+  margin-top: 20px;
+  padding-top: 5px;
+  clear: both;
+}
+
+#commentsBox hr
+{
+  border: 0px;
+  height: 1px;
+  width: 100%;
+  border-top: 1px solid #DDD;
+}
+
+#commentsControls
+{
+  text-align: right;
+}
+
+#commentsShowBox {}
+
+
+/* Überschriften -----------------------------------------*/
+
+.commentsHeadline
+{
+  color: #CCC;
+  text-transform: uppercase;
+  float: left;
+}
+
+/* Submitting --------------------------------------------*/
+
+#commentsForm
+{
+  margin: 0px;
+  padding: 0px;
+}
+
+#commentsForm input, #commentsForm textarea
+{
+  font-family: sans-serif;
+  color: black;
+  font-size: 0.8rem;
+  font-weight: bold;
+  background-color: #f9f9f9;
+  padding: 2px;
+  width: 90%;
+  border: 1px #CCC inset;
+
+}
+
+#commentsForm input[id=captcha]
+{
+  width: 100px;
+}
+
+#commentsForm div
+{
+  margin-bottom: 10px;
+}
+
+#commentsForm .veriBox {
+  display: none;
+}
+
+#commentsForm div.commentCaption
+{
+  font-style: italic;
+  margin-bottom: 0px;
+}
+
+/* Kommentare betrachten -----------------------------------*/
+.comment
+{
+  margin-bottom: 10px;
+  border: 1px solid #d2d2c6;
+  border-radius: 5px;
+  background-color: white;
+  padding: 5px;
+}
+
+.commentSenderTime
+{
+  font-weight: bold;
+}
+
+.commentMsg
+{
+  font-size: 0.9rem;
+}
+
+.adminComment {
+  box-sizing: border-box;
+  width: 90%;
+  margin-left: 10%;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  right: 0px;
+  background-color: white;
+  position: relative;
+  top: 10px;
+  box-shadow: -1px -1px 10px #aaa;
+  font-size: 0.9rem;
+}
+
+.adminCommentHead {
+}
+
+/* Kontakt - Formular
+  _______________________________________________________________________
+*/
+#contactFormBox
+{}
+
+#contactFormBox form
+{
+  margin: 0px;
+  padding: 0px;
+}
+
+#contactFormBox input, #contactFormBox textarea
+{
+  font-family: sans-serif;
+  color: black;
+  font-size: 0.8rem;
+  font-weight: bold;
+  background-color: #f9f9f9;
+  border: 1px #CCC inset;
+  padding: 2px 6px;
+  width: 90%;
+  text-decoration: none;
+}
+
+#contactFormBox input[name=captcha]
+{
+  width: 100px;
+}
+
+#contactFormBox div
+{
+  margin-bottom: 10px;
+}
+
+#contactFormBox .veriBox {
+  display: none;
+}
+
+#contactFormBox img
+{
+  vertical-align: text-bottom;
+  padding: 0px;
+}
+
+/**
+ * cbArticleTeasersVF
+ * __________________________________________________________________
+ */
+figure.cbArticleTeaser
+{
+  margin: 0;
+  width: 100%;
+}
+
+figure .cbArticleTeaserLink
+{}
+
+figure .cbArticleTeaserImg
+{
+  width: 100%;
+}
+
+figcaption.cbArticleTeaserAbstract
+{
+  display: none;
+}

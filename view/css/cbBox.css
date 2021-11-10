@@ -1,0 +1,61 @@
+/* Article Overview styles */
+/*-----------------------------------------------------------------*/
+.abcArticleOverviewCont
+{
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.abcArticleOverviewImg
+{
+  margin-right: 30px;
+}
+
+.abcArticleOverviewImg img
+{
+  margin: 2px;
+  width: 120px;
+  vertical-align: text-top;
+}
+
+.abcArticleOverviewCont
+{
+}
+
+.abcArticleOverviewDate
+{
+}
+
+.abcArticleOverviewDate:before
+{
+  content: '(';
+}
+
+.abcArticleOverviewDate:after
+{
+  content: ')';
+}
+
+.abcArticleOverviewHeadline
+{
+  font-weight: bold;
+  color: #ff5500;
+}
+
+.abcArticleOverviewAbstract
+{
+}
+
+.abcArticleOverviewMoreLink
+{
+}
+
+.abcArticleOverviewMoreLink:before
+{
+  content: '(';
+}
+
+.abcArticleOverviewMoreLink:after
+{
+  content: ')';
+}

@@ -1,0 +1,180 @@
+/* Main wrapper
+  _________________________________________________________________________
+*/
+.cbArticle {}
+
+/* Headline & date
+  _________________________________________________________________________
+*/
+
+.articleDate
+{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.articleHeadline
+{
+  font-weight: bolder;
+  padding-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Article Paragraph (Container) formatting
+  ___________________________________________________________________________
+*/
+
+.articleParagraph
+{
+  clear: left; /* must be only "left" so abcAttachments can be placed on the right */
+  margin-bottom: 10px;
+}
+
+.articleParagraph ul
+{
+  list-style-position: inside;
+}
+
+.articleImgOnlyParagraph
+{
+  clear: both;
+  padding-top: 15px;
+}
+
+
+/* Attachments
+  _____________________________________________________________________
+*/
+.articleAttachments
+{
+  float: right;
+  width: 35%;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
+  border: 1px solid #CCC;
+  background-color: #EEE;
+  font-size: .8rem;
+}
+
+.articleAttachmentLabel
+{
+  border-bottom: 1px solid #DDD;
+  margin-bottom: 7px;
+}
+
+.articleGetAdobe
+{
+  text-align: right;
+  padding: 3px;
+}
+
+.articleAttachmentCont
+{
+  border: 1px solid #DDD;
+  background-color: #F3F3F3;
+  margin-bottom: 5px;
+}
+
+.articleAttachmentLink, .articleAttachmentLink:active, .articleAttachmentLink:hover, .articleAttachmentLink:visited
+{
+  border: 0px;
+}
+
+/* Articel Paragraph
+  - picture container,
+  - picture,
+  - picture caption
+  - text formatting
+  _________________________________________________________________________
+*/
+
+.articleParagraphImgCont
+{
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.articleParagraphImgContLeft
+{
+  float: left;
+  margin-right: 20px;
+}
+
+.articleParagraphImgContRight
+{
+  float: right;
+  margin-left: 20px;
+}
+
+.articleParagraphImg
+{
+  display: block;
+  cursor: pointer;
+}
+
+.articleParagraphImgCaption
+{
+  line-height: 1.2em;
+  font-family: serif;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.articleParagraphText
+{
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/*
+.articleParagraphText:first-child:first-letter, .articleTextOnlyParagraph:first-child:first-letter
+{
+  float: left;
+  font-family: serif;
+  font-size: 60px;
+  line-height: 45px;
+  padding-top: 4px;
+  padding-right: 8px;
+}
+*/
+
+/* Article "Back to Index" link formatting
+/*-----------------------------------------------------------------*/
+.articleIndexLink
+{
+  text-align: left;
+  padding-top: 35px;
+  clear: both;
+}
+
+/**
+ * Tables
+ *
+  ___________________________________________________________________
+*/
+.cbArticle table
+{
+  margin-top: 20px;
+  border: 1px solid #DDD;
+  margin-bottom: 25px;
+  clear: both;
+}
+
+.cbArticle table td, .cbArticleClassicS1 table th
+{
+  background-color: #EEE;
+  vertical-align: top;
+  width: 25%;
+  text-align: left;
+  padding: 5px;
+  font-size: 0.9rem;
+}
+
+.cbArticle table th
+{
+  font-weight: bold;
+  text-align: center;
+}

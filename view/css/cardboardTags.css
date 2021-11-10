@@ -1,0 +1,50 @@
+/* CSS classes for the built-in tags
+  _________________________________________________________
+*/
+
+.tag_t {
+  display: inline;
+}
+
+.tag_blob {
+  display: block;
+}
+
+.tag_mp3 {
+  height: 50px;
+  display: block;
+}
+
+.tag_codefile {
+  font-family: monospace;
+  white-space: pre;
+  border: 2px solid #DDD;
+  background-color: #f6f6f6;
+  padding: 5px;
+  overflow: auto;
+}
+
+.tag_h1 {
+  font-size: 1.4em;
+}
+
+.tag_h2 {
+  font-size: 1.2em;
+}
+
+.tag_li1 {
+  margin-left: 2em;
+}
+
+.tag_li2 {
+  margin-left: 3em;
+}
+
+.tag_map {
+  display: block;
+  text-align: center;
+}
+
+.tag_map img {
+  display: inline;
+}

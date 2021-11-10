@@ -1,0 +1,84 @@
+/**
+ * @defgroup   cardboard user classes
+ * @brief      This file implements user styles. Don't f*ck with this file, it's read in by the KuPC.
+ * @author     Konstantinmeyer
+ * @date       2021
+ */
+
+/* Crystal clear */
+.clear 
+{
+  display: block;
+  clear: both;
+  float: none;
+}
+
+/* Italic */
+.i 
+{ font-style: italic; }
+/* Bold */
+.b { font-weight: bold; }
+/* Underlined */
+.u { text-decoration: underline; }
+
+/* Bigger text */
+.big { font-size: 1.3em; }
+/* Smaller text */
+.small { font-size: 0.7em; }
+
+/* Align text left */
+.left { display: block; text-align: left; }
+/* Align text right */
+.right { display: block; text-align: right; }
+/* Center align text */
+.center { display: block; text-align: center; }
+/* Justify */
+.justify { display: block; text-align: justify; }
+
+/* List Item With Dot */
+.listDot {
+  display: list-item;
+  margin-left: 20px;
+}
+
+/* List Item Without Dot */
+.listNoDot {
+  display: block;
+  margin-left: 20px;
+}
+
+/* Aqua */
+.aqua {color: aqua;}
+/* Black */
+.black {color: black;}
+/* Blue */
+.blue {color: blue;}
+/* Fuchsia */
+.fuchsia {color: fuchsia;}
+/* Gray */
+.gray {color: gray;}
+/* Grey */
+.grey {color: grey;}
+/* Green */
+.green {color: green;}
+/* Lime */
+.lime {color: lime;}
+/* Maroon */
+.maroon {color: maroon;}
+/* Navy */
+.navy {color: navy;}
+/* Olive */
+.olive {color: olive;}
+/* Purple */
+.purple {color: purple;}
+/* Red */
+.red {color: red;}
+/* Silver */
+.silver {color: silver;}
+/* Teal */
+.teal {color: teal;}
+/* White */
+.white {color: white;}
+/* Yellow */
+.yellow {color: yellow;}
+
