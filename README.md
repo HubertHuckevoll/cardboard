@@ -1,2 +1,2 @@
 # cardboard
-Cardboard CMS
+Cardboard Libraries.
