@@ -10,11 +10,13 @@ class cbArticleFrameVF extends cbBaseVF
       pageNumbers
   */
 
+	public $viewHints = array();
+
   /**
    * constructor
    * ___________________________________________________________________
    */
-  public function __construct($ep = '', $hook, $linker = null)
+  public function __construct($ep, $hook, $linker = null)
   {
     parent::__construct($ep, $hook, $linker);
 
@@ -98,7 +100,7 @@ class cbArticleFrameVF extends cbBaseVF
 	 */
 	 protected function headline()
 	 {
-	   $subTitle = $this->data['pagesInfo'][$this->data['articlePage']];
+	   $subTitle = isset($this->data['pagesInfo'][$this->data['articlePage']]) ?? '';
 
 	   $erg = '<div class="articleHeadline">'.$this->data['headline'];
 	   if ($subTitle != '')
@@ -128,8 +130,9 @@ class cbArticleFrameVF extends cbBaseVF
 	protected function backLink()
 	{
 		$backLinkLabel = 'zum Index von "'.$this->data['boxNameAlias'].'"';
+		$erg = '';
 
-	  if ($this->viewHints['backLinkHook'] != '')
+	  if (isset($this->viewHints['backLinkHook']) && ($this->viewHints['backLinkHook'] != ''))
 	  {
 	    $erg = '<div class="articleIndexLink">'.
 	             '[&nbsp;<a href="'.$this->linker->cbBoxLinkFromArticle($this->ep, $this->viewHints['backLinkHook'], $this->data['articleBox'], $this->data['articleName']).'">'.$backLinkLabel.'</a>&nbsp;]'.

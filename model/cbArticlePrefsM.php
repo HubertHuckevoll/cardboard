@@ -9,12 +9,12 @@
 class cbArticlePrefsM
 {
   private static $instance = null;
-  
+
   private $prefDefaults = array (
     'invisible' => false,
     'commentsDisabled' => false
   );
-  
+
   private $prefs = array();
   private $isLoaded = array(); // array of booleans
 
@@ -28,17 +28,17 @@ class cbArticlePrefsM
 		{
 		  self::$instance = new cbArticlePrefsM();
 		}
-		
+
     return self::$instance;
   }
-  
+
   /**
    * load prefs
    * _________________________________________________________________
    */
   public function load($articleBox)
   {
-    if (!$this->isLoaded[$articleBox] === true)
+    if (isset($this->isLoaded[$articleBox]) && (!$this->isLoaded[$articleBox] === true))
     {
       $prefsF = getPathFS(CB_DATA_ROOT.$articleBox.CB_DATA_PREFS.'prefs.json');
       try
@@ -54,7 +54,7 @@ class cbArticlePrefsM
       }
     }
   }
-  
+
   /**
    * force reload by emptying the (corresponding) array
    * _________________________________________________________________
@@ -90,16 +90,16 @@ class cbArticlePrefsM
       throw $e;
     }
   }
-  
+
   /**
    * cleanupPrefs, remove old Prefs
    * FIXME: not used, where to call?
    * _________________________________________________________________
    */
-  public function sanitizePrefs($prefArr, $defaultsName)
+  public function sanitizePrefs($prefArr)
   {
-    $cleanPrefs = $this->prefDefaults[$defaultsName];
-    
+    $cleanPrefs = $this->prefDefaults;
+
     foreach ($cleanPrefs as $cpk => $cpv)
     {
       foreach ($prefArr as $lpk => $lpv)
@@ -110,10 +110,10 @@ class cbArticlePrefsM
         }
       }
     }
-    
+
     return $cleanPrefs;
   }
-  
+
   /**
    * get cbArticle pref
    * _________________________________________________________________
@@ -126,7 +126,7 @@ class cbArticlePrefsM
     if (isset($this->prefDefaults[$key]))
     {
       $val = $this->prefDefaults[$key];
-      
+
       if (isset($this->prefs[$articleBox][$articleName][$key]))
       {
         $val = $this->prefs[$articleBox][$articleName][$key];
@@ -135,7 +135,7 @@ class cbArticlePrefsM
 
     return $val;
   }
-  
+
   /**
    * get cbArticle prefs
    * _________________________________________________________________
@@ -152,7 +152,7 @@ class cbArticlePrefsM
 
     return $val;
   }
-  
+
   /**
    * set cbArticle pref
    * _________________________________________________________________
@@ -163,7 +163,7 @@ class cbArticlePrefsM
     {
       $val = true;
     }
-    
+
     if ($val === 'false')
     {
       $val = false;
@@ -171,10 +171,10 @@ class cbArticlePrefsM
 
     $this->load($articleBox);
     $this->prefs[$articleBox][$articleName][$key] = $val;
-    
+
     return $this->save($articleBox);
   }
-  
+
   /**
    * set cbArticle prefs
    * _________________________________________________________________
@@ -183,7 +183,7 @@ class cbArticlePrefsM
   {
     $this->load($articleBox);
     $this->prefs[$articleBox][$articleName] = $prefs;
-    
+
     return $this->save($articleBox);
   }
 
@@ -195,10 +195,10 @@ class cbArticlePrefsM
   {
     $this->load($articleBox);
     unset($this->prefs[$articleBox][$articleName][$key]);
-    
+
     return $this->save($articleBox);
   }
-  
+
   /**
    * reset cbArticle prefs
    * _________________________________________________________________
@@ -207,10 +207,10 @@ class cbArticlePrefsM
   {
     $this->load($articleBox);
     unset($this->prefs[$articleBox][$articleName]);
-    
+
     return $this->save($articleBox);
   }
-  
+
   /**
    * rename article
    * _________________________________________________________________
@@ -218,7 +218,7 @@ class cbArticlePrefsM
   public function renameArticle($articleBox, $oldArticleName, $newArticleName)
   {
     $this->load($articleBox);
-    
+
     if (isset($this->prefs[$articleBox][$oldArticleName]))
     {
       $prefs = $this->prefs[$articleBox][$oldArticleName];
@@ -229,7 +229,7 @@ class cbArticlePrefsM
         return $this->save($articleBox);
       }
     }
-    
+
     return false;
   }
 
@@ -241,7 +241,7 @@ class cbArticlePrefsM
   {
     $this->load($articleBox);
     unset($this->prefs[$articleBox]);
-    
+
     return $this->save($articleBox);
   }
 

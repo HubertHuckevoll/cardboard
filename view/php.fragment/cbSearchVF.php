@@ -11,6 +11,7 @@ class cbSearchVF extends cbBaseVF
 	{
 	  $none = true;
 
+    $erg  = '';
 	  $erg .= '<div id="searchResultsBox">'.
 		    			'<h3>Suchergebnisse</h3>'.
 	    				'<ul id="searchResultsList">';

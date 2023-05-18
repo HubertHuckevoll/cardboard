@@ -41,7 +41,7 @@ class cbArticleClassicStyle0VF extends cbArticleFrameVF
       {
         // Text
         // we're not using p tags, as our text might contain rendered
-        // cardboard tags that could be block level emements themselves
+        // cardboard tags that could be block level elements themselves
         $erg .= '<div class="articleParagraphText">'.$textChunk.'</div>';
       }
     }

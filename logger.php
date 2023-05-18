@@ -134,6 +134,7 @@ class logger
     $i = 0;
     $last = count($callerInfo) - 1;
 
+    $out  = '';
     $out .= '<div><strong>Calling Stack</strong></div>'.
             '<div style="border: 1px solid #DDD; padding: 5px; margin-bottom: 5px;">';
 

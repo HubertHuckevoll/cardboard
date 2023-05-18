@@ -107,7 +107,11 @@ class cbBaseVF
    */
   public function fDate($timestamp, $format = "%x")
   {
-    return @strftime($format, $timestamp);
+    //return @strftime($format, $timestamp);
+    $dt = new \DateTime();
+    $dt->setTimestamp($timestamp);
+
+    return $dt->format("r");
   }
 
   /**
@@ -134,7 +138,7 @@ class cbBaseVF
    */
   protected function msgBox($msg, $msgImg = 'info.png', $style = true)
   {
-    if ($msg instanceof Exception) {
+    if ($msg instanceof \Exception) {
       $msg = $msg->getMessage().'<br><br><strong>Trace</strong><br>'.str_replace("\n", '<br>', $msg->getTraceAsString());
     }
 

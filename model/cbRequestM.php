@@ -38,7 +38,7 @@ class cbRequestM
 
     $req = $_GET + $_POST + $pathInfoArr;
 
-    $var = trim($var);
+    $var = trim($varName);
     $var = preg_replace("/^(content-type:|bcc:|cc:|to:|from:)/im", "", $var);
 
     if (isset($req[$varName]))
@@ -62,7 +62,7 @@ class cbRequestM
    */
   protected function parsePathInfo($varName)
   {
-    $pathInfo = $_SERVER['PATH_INFO'];
+    $pathInfo = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '';
     $matches = array();
     $result = array();
 

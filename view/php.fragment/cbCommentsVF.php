@@ -207,7 +207,7 @@ class cbCommentsVF extends cbBaseVF
    */
   protected function commentsDisabled()
   {
-    $erg .= '<div id="commentsBox">'.
+    $erg  = '<div id="commentsBox">'.
               '<div id="commentsContentBox">'.
                 '<div class="comment">Die Kommentare sind für diesen Artikel (vorübergehend) deaktiviert worden.</div>'.
               '</div>'.

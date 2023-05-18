@@ -19,7 +19,7 @@ class cbRouterHookC extends cbBaseC
   {
     parent::__construct($requestM);
 
-    $this->ep = ($ep == '') ? basename($_SERVER["SCRIPT_NAME"]) : $ep;
+    $this->ep = basename($_SERVER["SCRIPT_NAME"]);
     $this->hook = $this->requestM->getReqVar('hook');
 
     // check hook

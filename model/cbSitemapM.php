@@ -69,7 +69,7 @@ class cbSitemapM
    */
   protected function ensureURL($url)
   {
-    if (!((strpos($url, 'http') === 0) || (strpos($relPath, 'https') === 0)))
+    if (!((strpos($url, 'http') === 0) || (strpos($url, 'https') === 0)))
     {
       $url = ltrim($url, '/\\');
 

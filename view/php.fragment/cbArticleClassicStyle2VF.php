@@ -26,7 +26,7 @@ class cbArticleClassicStyle2VF extends cbArticleFrameVF
    * with alignment of assets
    * IMPORTANT:
    * we're not using p tags, as our text might contain rendered
-   * cardboard tags that could be block level emements themselves
+   * cardboard tags that could be block level elements themselves
    * ___________________________________________________________________
    */
   public function renderArticleBody()
