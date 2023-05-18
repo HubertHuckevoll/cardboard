@@ -128,8 +128,8 @@ class cbCommentsVF extends cbBaseVF
   {
     $erg = '';
 
-    $actionHref     = $this->ep.'?hook='.$this->hook.'&amp;op=showCommentsSubmit&amp;articleBox='.$this->data['articleBox'].'&amp;article='.$this->data['articleName'].'&amp;articlePage='.$this->data['articlePage'];
-    $actionHrefAjax = $this->ep.'?hook='.$this->hook.'&amp;op=showCommentsSubmitAjax&amp;articleBox='.$this->data['articleBox'].'&amp;article='.$this->data['articleName'].'&amp;articlePage='.$this->data['articlePage'];
+    $actionHref     = $this->ep.'?mod='.$this->mod.'&hook='.$this->hook.'&amp;op=showCommentsSubmit&amp;articleBox='.$this->data['articleBox'].'&amp;article='.$this->data['articleName'].'&amp;articlePage='.$this->data['articlePage'];
+    $actionHrefAjax = $this->ep.'?mod='.$this->mod.'&hook='.$this->hook.'&amp;op=showCommentsSubmitAjax&amp;articleBox='.$this->data['articleBox'].'&amp;article='.$this->data['articleName'].'&amp;articlePage='.$this->data['articlePage'];
 
     if (isset($this->data['isSuccess']))
     {
@@ -151,8 +151,9 @@ class cbCommentsVF extends cbBaseVF
                  '<div class="commentCaption">Ihr Name:</div>'.
                  '<input type="text" value="'.$this->data['sender'].'" name="sender" id="sender" />'.
               '</div>'.
-              '<div>'.
-                 '<div class="commentCaption">Ihr Kommentar:</div>'.
+              '<div>'.      $this->view->setData('bgImg', 'dienste.gif');
+              $this->view->setData('ver', getVer());
+
                  '<textarea rows="15" name="message" id="message">'.$this->data['message'].'</textarea>'.
               '</div>'.
               '<div>
@@ -174,11 +175,11 @@ class cbCommentsVF extends cbBaseVF
   {
     $erg = '';
 
-    $showCommentsHref     = $this->ep.'?hook='.$this->hook.'&amp;op=show&amp;articleBox='.$this->data['articleBox'].'&amp;article='.$this->data['articleName'].'&amp;articlePage='.$this->data['articlePage'];
-    $showCommentsHrefAjax = $this->ep.'?hook='.$this->hook.'&amp;op=showCommentsAjax&amp;articleBox='.$this->data['articleBox'].'&amp;article='.$this->data['articleName'].'&amp;articlePage='.$this->data['articlePage'];
+    $showCommentsHref     = $this->ep.'?mod='.$this->mod.'&hook='.$this->hook.'&amp;op=show&amp;articleBox='.$this->data['articleBox'].'&amp;article='.$this->data['articleName'].'&amp;articlePage='.$this->data['articlePage'];
+    $showCommentsHrefAjax = $this->ep.'?mod='.$this->mod.'&hook='.$this->hook.'&amp;op=showCommentsAjax&amp;articleBox='.$this->data['articleBox'].'&amp;article='.$this->data['articleName'].'&amp;articlePage='.$this->data['articlePage'];
 
-    $showCommentsFormHref     = $this->ep.'?hook='.$this->hook.'&amp;op=showCommentsForm&amp;articleBox='.$this->data['articleBox'].'&amp;article='.$this->data['articleName'].'&amp;articlePage='.$this->data['articlePage'];
-    $showCommentsFormHrefAjax = $this->ep.'?hook='.$this->hook.'&amp;op=showCommentsFormAjax&amp;articleBox='.$this->data['articleBox'].'&amp;article='.$this->data['articleName'].'&amp;articlePage='.$this->data['articlePage'];
+    $showCommentsFormHref     = $this->ep.'?mod='.$this->mod.'&hook='.$this->hook.'&amp;op=showCommentsForm&amp;articleBox='.$this->data['articleBox'].'&amp;article='.$this->data['articleName'].'&amp;articlePage='.$this->data['articlePage'];
+    $showCommentsFormHrefAjax = $this->ep.'?mod='.$this->mod.'&hook='.$this->hook.'&amp;op=showCommentsFormAjax&amp;articleBox='.$this->data['articleBox'].'&amp;article='.$this->data['articleName'].'&amp;articlePage='.$this->data['articlePage'];
 
     $erg .= '<div id="commentsBox">'.
             '<div class="commentsHeadline">einträge</div>'.

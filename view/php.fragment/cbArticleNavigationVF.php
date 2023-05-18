@@ -17,7 +17,7 @@ class cbArticleNavigationVF extends cbBaseVF
         $artPage = $this->data['model']['paginatedText'][$i];
         $caption = $this->data['model']['pagesInfo'][$i];
         $sel = ($this->data['meta']['articlePage'] == $i) ? ' class="selected"' : '';
-        $url = $this->linker->cbArticleLink($this->ep, $this->hook, $this->data['model']['articleBox'], $this->data['model']['articleName'], $i);
+        $url = $this->linker->cbArticleLink($this->ep, $this->mod, $this->hook, $this->data['model']['articleBox'], $this->data['model']['articleName'], $i);
         $erg .= '<li'.$sel.'><a href="'.$url.'">'.$caption.'</a></li>';
       }
 

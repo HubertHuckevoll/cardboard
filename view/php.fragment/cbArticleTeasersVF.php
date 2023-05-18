@@ -1,9 +1,9 @@
 <?php
 namespace cb\view\fragment;
 
-class cbArticleTeasersVF extends cbBaseVF
+trait cbArticleTeasersVF
 {
-  public function render()
+  public function renderTeasers()
   {
     $str = '';
 
@@ -26,7 +26,7 @@ class cbArticleTeasersVF extends cbBaseVF
           $imgUrl = $imgO;
         }
 
-        $href = $this->linker->cbArticleLink($this->ep, $this->hook, $artObj['articleBox'], $artObj['articleName']);
+        $href = $this->linker->cbArticleLink($this->viewHints['ep'], $this->viewHints['articleMod'], $this->viewHints['articleHook'], $artObj['articleBox'], $artObj['articleName']);
 
         $str .= '<figure class="cbArticleTeaser">'.
                   '<a class="cbArticleTeaserLink" href="'.$href.'" title="'.$artObj['headline'].'">'.

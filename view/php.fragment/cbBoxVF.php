@@ -2,25 +2,13 @@
 
 namespace cb\view\fragment;
 
-class cbBoxVF extends cbBaseVF
+trait cbBoxVF
 {
-  public $articleHook = '';
-
-  /**
-   * Konstruktor
-   * ___________________________________________________________________
-   */
-  public function __construct($ep = '', $hook, $articleHook, $linker = null)
-  {
-    parent::__construct($ep, $hook, $linker);
-    $this->articleHook = $articleHook;
-  }
-
   /**
    * Create the index page
    * _________________________________________________________________
    */
-  public function render()
+  public function renderArticleList()
   {
     $articleList = (array) $this->data['articleList'];
 
@@ -33,7 +21,13 @@ class cbBoxVF extends cbBaseVF
     {
       foreach($articleList as $artObj)
       {
-        $http = $this->linker->cbArticleLink($this->ep, $this->articleHook, $artObj['articleBox'], $artObj['articleName']);
+        $http = $this->linker->cbArticleLink(
+          $this->viewHints['ep'],
+          $this->viewHints['articleMod'],
+          $this->viewHints['articleHook'],
+          $artObj['articleBox'],
+          $artObj['articleName']
+        );
 
         $teaserImg = $artObj['images'][0];
 
@@ -80,14 +74,14 @@ class cbBoxVF extends cbBaseVF
       $erg .= '<div class="cbPageController">';
       if ($page > 0)
       {
-        $erg .= '<a class="cbPrevPage" href="'.$this->linker->cbBoxLink($this->ep, $this->hook, $this->data['articleBox'], ($page-1)).'">&laquo;</a>';
+        $erg .= '<a class="cbPrevPage" href="'.$this->linker->cbBoxLink($this->viewHints['ep'], $this->viewHints['mod'], $this->viewHints['hook'], $this->data['articleBox'], ($page-1)).'">&laquo;</a>';
       }
       $erg .= '<div class="cbPages">';
       for($i = 0; $i < $numOfPages; $i++)
       {
         if ($page != $i)
         {
-          $erg .= '<a href="'.$this->linker->cbBoxLink($this->ep, $this->hook, $this->data['articleBox'], $i).'">'.($i+1).'</a>';
+          $erg .= '<a href="'.$this->linker->cbBoxLink($this->viewHints['ep'], $this->viewHints['mod'], $this->viewHints['hook'], $this->data['articleBox'], $i).'">'.($i+1).'</a>';
         }
         else
         {
@@ -97,7 +91,7 @@ class cbBoxVF extends cbBaseVF
       $erg .= '</div>';
       if (($page + 1) < $numOfPages)
       {
-        $erg .= '<a class="cbNextPage" href="'.$this->linker->cbBoxLink($this->ep, $this->hook, $this->data['articleBox'], ($page+1)).'">&raquo;</a>';
+        $erg .= '<a class="cbNextPage" href="'.$this->linker->cbBoxLink($this->viewHints['ep'], $this->viewHints['mod'], $this->viewHints['hook'], $this->data['articleBox'], ($page+1)).'">&raquo;</a>';
       }
       $erg .= '</div>';
     }

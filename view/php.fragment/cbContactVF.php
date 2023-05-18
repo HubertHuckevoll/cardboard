@@ -9,7 +9,7 @@ class cbContactVF extends cbBaseVF
    */
   public function render()
   {
-    $href = $this->ep.'?hook='.$this->hook.'&amp;op=showContactFormSubmitted&amp;articleBox='.$this->data['articleBox'].'&amp;article='.$this->data['articleName'].'&amp;articlePage='.$this->data['articlePage'];
+    $href = $this->ep.'?mod='.$this->mod.'.hook='.$this->hook.'&amp;op=showContactFormSubmitted&amp;articleBox='.$this->data['articleBox'].'&amp;article='.$this->data['articleName'].'&amp;articlePage='.$this->data['articlePage'];
     $status = '';
 
     if (isset($this->data['isSuccess']))

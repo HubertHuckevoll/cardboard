@@ -118,27 +118,27 @@ class cbLinkVF
    * cbArticleLink
    * _________________________________________________________________
    */
-  public function cbArticleLink($ep, $hook, $articleBox, $articleName, $articlePage = 0)
+  public function cbArticleLink($ep, $mod, $hook, $articleBox, $articleName, $articlePage = 0)
   {
-    return $this->href($ep, array('hook' => $hook, 'op' => 'show', 'articleBox' => $articleBox, 'article' => $articleName, 'articlePage' => (int)$articlePage));
+    return $this->href($ep, ['mod' => $mod, 'hook' => $hook, 'op' => 'show', 'articleBox' => $articleBox, 'article' => $articleName, 'articlePage' => (int)$articlePage]);
   }
 
   /**
    * cbArticleLinkToGalleryImg
    * _________________________________________________________________
    */
-  public function cbArticleLinkToGalleryImg($ep, $hook, $articleHook, $articleBox, $articleName, $articlePage = 0, $imgIdx = 0)
+  public function cbArticleLinkToGalleryImg($ep, $mod, $hook, $articleHook, $articleBox, $articleName, $articlePage = 0, $imgIdx = 0)
   {
-    return $this->href($ep, array('hook' => $hook, 'articleHook' => $articleHook, 'articleBox' => $articleBox, 'article' => $articleName, 'articlePage' => (int)$articlePage, 'imgIdx' => $imgIdx));
+    return $this->href($ep, ['mod' => $mod, 'hook' => $hook, 'articleHook' => $articleHook, 'articleBox' => $articleBox, 'article' => $articleName, 'articlePage' => (int)$articlePage, 'imgIdx' => $imgIdx]);
   }
 
   /**
    * cbBoxLink
    * _________________________________________________________________
    */
-  public function cbBoxLink($ep, $hook, $articleBox, $boxPage = 0)
+  public function cbBoxLink($ep, $mod, $hook, $articleBox, $boxPage = 0)
   {
-    return $this->href($ep, array('hook' => $hook, 'op' => 'show', 'articleBox' => $articleBox, 'boxPage' => (int)$boxPage));
+    return $this->href($ep, ['mod' => $mod, 'hook' => $hook, 'op' => 'show', 'articleBox' => $articleBox, 'boxPage' => (int)$boxPage]);
   }
 
   /**
@@ -146,13 +146,13 @@ class cbLinkVF
    * infamous BACK link...
    * _______________________________________________________________
    */
-  public function cbBoxLinkFromArticle($ep, $hook, $articleBox, $articleName = '')
+  public function cbBoxLinkFromArticle($ep, $mod, $hook, $articleBox, $articleName = '')
   {
     if ($articleName == '')
     {
       $articleName = (int)0;
     }
-    return $this->href($ep, array('hook' => $hook, 'op' => 'show', 'articleBox' => $articleBox, 'boxPage' => $articleName));
+    return $this->href($ep, ['mod' => $mod, 'hook' => $hook, 'op' => 'show', 'articleBox' => $articleBox, 'boxPage' => $articleName]);
   }
 }
 

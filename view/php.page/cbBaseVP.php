@@ -1,14 +1,12 @@
 <?php
 
-namespace cb\view\fragment;
+namespace cb\view\page;
 
 /**
   Base view
-  There are 3 Types of functions:
-  1. functions that start with "draw" are public and actually dump content down the wire ("echo")
-  2. functions that start with "render" are public and return the rendererd fragment to the caller
-  3. all other functions are internal. they should be protected and should not
-     start with "render" or "draw"
+  There are 2 types of functions:
+  1. functions that start with "draw" are public and actually dump content down the wire ("echo") - API
+  2. all other functions are internal. They should be protected and return content.
 
   Also, dont't add stuff to the constructor -
   all views should have the same construction api
@@ -16,12 +14,15 @@ namespace cb\view\fragment;
   ___________________________________________________________________
 */
 
-class cbBaseVF
+class cbBaseVP
 {
   public $data = array(); // model data
 
-  public $ep = '';
-  public $hook = '';
+  public $viewHints = [
+    'ep' => '',
+    'mod' => '',
+    'hook' => ''
+  ];
   public $useEP = true;
   public $stateParams = array();
 
@@ -32,11 +33,10 @@ class cbBaseVF
    * the linker can be replaced from outside
    * _________________________________________________________________
    */
-  public function __construct($ep = '', $hook, $linker = null)
+  public function __construct(array $viewHints, $linker = null)
   {
-    $this->hook = $hook;
-    $this->ep = ($ep != '') ? $ep : basename($_SERVER['SCRIPT_NAME']);
-    $this->linker = ($linker != null) ? $linker : new cbLinkVF();
+    $this->viewHints = $viewHints;
+    $this->linker = ($linker != null) ? $linker : new \cb\view\fragment\cbLinkVF();
   }
 
   /**
@@ -134,6 +134,8 @@ class cbBaseVF
 
   /**
    * Msg Box
+   * FIXME - this shouldn't have inline CSS
+   * is it even right to have this here?
    * _______________________________________________________________
    */
   protected function msgBox($msg, $msgImg = 'info.png', $style = true)

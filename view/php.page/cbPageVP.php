@@ -1,15 +1,15 @@
 <?php
 namespace cb\view\page;
 
-class cbPageVP extends \cb\view\fragment\cbBaseVF
+class cbPageVP extends cbBaseVP
 {
   /**
    * Konstruktor
    * ________________________________________________________________
    */
-	public function __construct($ep = '', $hook, $linker = null)
+	public function __construct($viewHints, $linker = null)
 	{
-		parent::__construct($ep, $hook, $linker);
+		parent::__construct($viewHints, $linker);
 	}
 
   /**

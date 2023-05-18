@@ -1,6 +1,6 @@
 <?php
 
-class cbBoxC extends cbBaseC
+class cbBoxC extends cbPageC
 {
   private $boxA = null;
   private $articleBox = '';
@@ -10,14 +10,13 @@ class cbBoxC extends cbBaseC
 
   /**
    * Konstruktor
+   * overwrite me!
    * _________________________________________________________________
    */
-  public function __construct($boxA, $requestM = null)
+  public function __construct($articleBox, $linker = null, $requestM = null)
   {
-    parent::__construct($requestM);
-
-    $this->boxA = $boxA;
-    $this->articleBox = $this->boxA['box'];
+    parent::__construct($linker, $requestM);
+    $this->articleBox = $articleBox;
 
 		try
 		{
@@ -30,24 +29,32 @@ class cbBoxC extends cbBaseC
   }
 
   /**
-   * Index
-   * _________________________________________________________________
+   * index
+   * ________________________________________________________________
    */
-  public function show()
+  public function index()
   {
-    $page = $this->getPage();
-    $startIdx = $page * $this->articlesPerPage;
-    $artObjs = $this->cbs->getArticles($startIdx, $this->articlesPerPage);
+    try
+    {
+      $page = $this->getPage();
+      $startIdx = $page * $this->articlesPerPage;
+      $artObjs = $this->cbs->getArticles($startIdx, $this->articlesPerPage);
+      $boxA = $this->boxes->getBoxByName($this->articleBox);
 
-    $ret['meta']['cTitle'] = $this->boxA['alias'];
-    $ret['meta']['cTeaser'] = $ret['meta']['cTitle'];
-		$ret['model']['boxPage'] = $page;
-		$ret['model']['articleBox'] = $this->articleBox;
-		$ret['model']['articleList'] = $this->cbs->articleObjs2Array($artObjs);
-		$ret['model']['numArticles'] = $this->cbs->numArticles;
-		$ret['model']['articlesPerPage'] = $this->articlesPerPage;
+      $this->view->setData('articleList', $this->cbs->articleObjs2Array($artObjs));
+      $this->view->setData('articleBox', $this->articleBox);
+      $this->view->setData('pageTitle', $boxA['alias']);
+      $this->view->setData('metaDescription', $boxA['alias']);
+      $this->view->setData('boxPage', $page);
+      $this->view->setData('numArticles', $this->cbs->numArticles);
+      $this->view->setData('articlesPerPage', $this->articlesPerPage);
 
-    return $ret;
+      $this->view->drawPage();
+    }
+    catch (Exception $e)
+    {
+      $this->view->drawPage($e->getMessage);
+    }
   }
 
   /**

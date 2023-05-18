@@ -2,13 +2,13 @@
 
 namespace cb\view\fragment;
 
-class cbArticleMetadataVF extends cbBaseVF
+trait cbArticleMetadataVF
 {
   /**
    * draw some metadata
    * ___________________________________________________________________
    */
-  public function render()
+  public function renderMetadata()
   {
     $str = '';
     $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];

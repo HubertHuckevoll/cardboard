@@ -13,13 +13,6 @@ class cbPageC extends cbBaseC
   // linker is used for rewritting standard queries to routes
   public $linker = null;
 
-  /* the following variables are declared here as used in initView, but they are only set up in our children.
-     FIXME: pass hook and ep to the constructor once every controller is in it's own file in all projects
-     update routers accordingly
-  */
-  public $ep = '';
-  public $hook = '';
-
   public $projectRootURL = ''; // Base - important for URL rewriting
 
   public $boxes = null;
@@ -54,7 +47,7 @@ class cbPageC extends cbBaseC
    * or a namespaced ui and view name: "view\generic\indexV"
    * _________________________________________________________________
    */
-  public function initView($uiViewName)
+  public function initView($uiViewName, $viewHints)
   {
     // determine view name
     try
@@ -69,7 +62,7 @@ class cbPageC extends cbBaseC
       }
 
       // create view
-      $this->view = new $vName($this->ep, $this->hook, $this->linker);
+      $this->view = new $vName($viewHints, $this->linker);
 
       // Some default properties
       define('PROJECT_ROOT_URL', getProjectRootURL().DIRECTORY_SEPARATOR); // Base - important for URL rewriting

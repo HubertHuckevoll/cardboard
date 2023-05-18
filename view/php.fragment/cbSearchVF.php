@@ -24,7 +24,7 @@ class cbSearchVF extends cbBaseVF
       	foreach($hits as $hit)
         {
 	        $erg .= '<li>'.
-	                  '<a href="'.$this->linker->cbArticleLink($this->ep, $this->hook, $cbid, $hit['articleName'], $hit['articlePage']).'">'.$hit['headline'].':</a>'.
+	                  '<a href="'.$this->linker->cbArticleLink($this->ep, $this->mod, $this->hook, $cbid, $hit['articleName'], $hit['articlePage']).'">'.$hit['headline'].':</a>'.
 	                  '&nbsp;'.$hit['abstract'].
 	                '</li>';
       	}
