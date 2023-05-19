@@ -109,7 +109,7 @@ trait cbArticleClassicStyle1VF
     if (isset($this->viewHints['backLinkHook']) && ($this->viewHints['backLinkHook'] != ''))
     {
       $erg = '<div class="articleIndexLink">'.
-               '[&nbsp;<a href="'.$this->linker->cbBoxLinkFromArticle($this->ep, $this->viewHints['backLinkMod'], $this->viewHints['backLinkHook'], $this->data['articleBox'], $this->data['articleName']).'">'.$backLinkLabel.'</a>&nbsp;]'.
+               '[&nbsp;<a href="'.$this->linker->cbBoxLinkFromArticle($this->viewHints['ep'], $this->viewHints['backLinkMod'], $this->viewHints['backLinkHook'], $this->data['articleBox'], $this->data['articleName']).'">'.$backLinkLabel.'</a>&nbsp;]'.
              '</div>';
     }
 
@@ -253,7 +253,16 @@ trait cbArticleClassicStyle1VF
 
           if (isset($this->viewHints['galleryHook']) && ($this->viewHints['galleryHook'] != ''))
           {
-            $iurl = $this->linker->href($this->ep, array('mod'=>$this->viewHints['galleryMod'], 'hook'=>$this->viewHints['galleryHook'], 'articleHook'=>$this->hook, 'articleBox'=>$this->data['articleBox'], 'article'=>$this->data['articleName'], 'articlePage'=>$page, 'imgIdx'=>$i));
+            $iurl = $this->linker->href(
+              $this->viewHints['ep'],
+              ['mod'=>$this->viewHints['galleryMod'],
+               'hook'=>$this->viewHints['galleryHook'],
+               'articleHook'=>$this->viewHints['hook'],
+               'articleBox'=>$this->data['articleBox'],
+               'article'=>$this->data['articleName'],
+               'articlePage'=>$page,
+               'imgIdx'=>$i
+              ]);
           }
           else
           {
