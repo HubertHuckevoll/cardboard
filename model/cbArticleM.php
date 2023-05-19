@@ -7,7 +7,7 @@ class cbArticleM
   public $articleFile = null;
 
   public $data = array();
-  
+
   /**
    * Konstruktor
    * _________________________________________________________________
@@ -39,7 +39,7 @@ class cbArticleM
       throw $e;
     }
   }
-  
+
   /**
    * Suche
    * _________________________________________________________________
@@ -71,8 +71,8 @@ class cbArticleM
     {
       foreach ($files as $file)
       {
-        if (stripos($file['fname'], $str) !== false) {$hit = $file['fname']; break;}
-        if (stripos($file['fileInfo'], $str) != false) { $hit = $file['fileInfo']; break;}
+        if (isset($file['fname']) && (stripos($file['fname'], $str) !== false)) {$hit = $file['fname']; break;}
+        if (isset($file['fileInfo']) && (stripos($file['fileInfo'], $str) !== false)) { $hit = $file['fileInfo']; break;}
       }
     }
 
@@ -81,8 +81,8 @@ class cbArticleM
     {
       foreach ($files as $file)
       {
-        if (stripos($file['fname'], $str) !== false) {$hit = $file['fname']; break;}
-        if (stripos($file['fileInfo'], $str) != false) { $hit = $file['fileInfo']; break;}
+        if (isset($file['fname']) && (stripos($file['fname'], $str) !== false)) {$hit = $file['fname']; break;}
+        if (isset($file['fileInfo']) && (stripos($file['fileInfo'], $str) !== false)) { $hit = $file['fileInfo']; break;}
       }
     }
 
@@ -91,21 +91,21 @@ class cbArticleM
     {
       foreach ($files as $file)
       {
-        if (stripos($file['fname'], $str) !== false) {$hit = $file['fname']; break;}
-        if (stripos($file['fileInfo'], $str) != false) { $hit = $file['fileInfo']; break;}
+        if (isset($file['fname']) && (stripos($file['fname'], $str) !== false)) {$hit = $file['fname']; break;}
+        if (isset($file['fileInfo']) && (stripos($file['fileInfo'], $str) !== false)) { $hit = $file['fileInfo']; break;}
       }
     }
-    
+
     $files = (array) $this->getArticleOtherFiles();
     if (count($files) > 0)
     {
       foreach ($files as $file)
       {
-        if (stripos($file['fname'], $str) !== false) {$hit = $file['fname']; break;}
-        if (stripos($file['fileInfo'], $str) != false) { $hit = $file['fileInfo']; break;}
+        if (isset($file['fname']) && (stripos($file['fname'], $str) !== false)) {$hit = $file['fname']; break;}
+        if (isset($file['fileInfo']) && (stripos($file['fileInfo'], $str) !== false)) { $hit = $file['fileInfo']; break;}
       }
     }
-    
+
     $textPages = (array) $this->getArticlePaginatedText();
     foreach($textPages as $pageIdx => $textArr)
     {
@@ -133,7 +133,7 @@ class cbArticleM
 
       return $result;
     }
-      
+
     return null;
   }
 
@@ -171,7 +171,7 @@ class cbArticleM
 
       return $result;
     }
-    
+
     return null;
   }
 
@@ -186,7 +186,7 @@ class cbArticleM
     $hit = '...'.$hit.'...';
     return $hit;
   }
-  
+
   /* Artikel im Ganzen
     _________________________________________________________________
   */
@@ -320,7 +320,7 @@ class cbArticleM
       return $this->data['otherFiles'];
     }
   }
-  
+
   /**
    * get Styles
    * _________________________________________________________________

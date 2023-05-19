@@ -12,19 +12,18 @@ trait cbSearchVF
 	  $none = true;
 
     $erg  = '';
-	  $erg .= '<div id="searchResultsBox">'.
-		    			'<h3>Suchergebnisse</h3>'.
-	    				'<ul id="searchResultsList">';
+	  $erg .= '<ul id="searchResultsList">';
+    $data = $this->data['results'];
 
-    if (count($this->data) > 0)
+    if (count($data) > 0)
     {
 			$none = false;
-      foreach($this->data as $cbid => $hits)
+      foreach($data as $cbid => $hits)
       {
       	foreach($hits as $hit)
         {
 	        $erg .= '<li>'.
-	                  '<a href="'.$this->linker->cbArticleLink($this->ep, $this->mod, $this->hook, $cbid, $hit['articleName'], $hit['articlePage']).'">'.$hit['headline'].':</a>'.
+	                  '<a href="'.$this->linker->cbArticleLink($this->viewHints['ep'], $this->viewHints[$cbid], 'index', $cbid, $hit['articleName'], $hit['articlePage']).'">'.$hit['headline'].':</a>'.
 	                  '&nbsp;'.$hit['abstract'].
 	                '</li>';
       	}
@@ -35,7 +34,7 @@ trait cbSearchVF
       $erg .= '<li><strong>Der Suchbegriff wurde leider nicht gefunden.</strong></li>';
     }
 
-	  $erg .= '</ul></div>';
+	  $erg .= '</ul>';
 
 	  return $erg;
   }

@@ -9,7 +9,7 @@ trait cbContactVF
    */
   public function renderContact()
   {
-    $href = $this->ep.'?mod='.$this->mod.'.hook='.$this->hook.'&amp;op=showContactFormSubmitted&amp;articleBox='.$this->data['articleBox'].'&amp;article='.$this->data['articleName'].'&amp;articlePage='.$this->data['articlePage'];
+    $href = $this->viewHints['ep'].'?mod='.$this->viewHints['mod'].'&hook=showContactFormSubmitted&amp;articleBox='.$this->data['articleBox'].'&amp;article='.$this->data['articleName'].'&amp;articlePage='.$this->data['articlePage'];
     $status = '';
 
     if (isset($this->data['isSuccess']))
@@ -44,7 +44,7 @@ trait cbContactVF
                   '</div>'.
                   '<div>'.
                     'Bitte geben Sie den Code so ein, wie Sie ihn auf dem Bild erkennen.<br />'.
-                    '<img src="'.CB_ROOT.'captcha.php?t='.(microtime()*100).'" alt="Captcha"></img>&nbsp;'.
+                    '<img src="'.CB_ROOT.'captcha.php?t='.(microtime(true)*100).'" alt="Captcha"></img>&nbsp;'.
                     '<input type="text" name="captcha" id="captcha" value="" />'.
                   '</div>'.
                   '<div>'.

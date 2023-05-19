@@ -14,7 +14,7 @@ class cbContactM
   {
     $this->articleBox = $articleBox;
     $this->articleName = $articleName;
-    
+
     $this->toEmail = $toEmail;
   }
 
@@ -41,6 +41,7 @@ class cbContactM
       $msg  = 'Von der Website...'."\r\n\r\n";
       $msg .= 'e-mail des Senders: '.$senderMail."\r\n\r\n";
       $msg .= 'Nachricht des Senders: '."\r\n".$message."\r\n\r\n";
+
       if (!sendEmail($senderMail, $this->toEmail, 'Kontaktaufnahme', $msg))
       {
         throw new Exception(__CLASS__.': Interner Fehler: Nachricht konnte nicht gesendet werden (Zieladresse konfiguriert?)');

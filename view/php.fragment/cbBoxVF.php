@@ -29,7 +29,7 @@ trait cbBoxVF
           $artObj['articleName']
         );
 
-        $teaserImg = $artObj['images'][0];
+        $teaserImg = $artObj['images'][0] ?? [];
 
         $erg .= '<div class="abcArticleOverviewCont">';
         if (isset($teaserImg['thumb']))

@@ -120,7 +120,7 @@ class cbLinkVF
    */
   public function cbArticleLink($ep, $mod, $hook, $articleBox, $articleName, $articlePage = 0)
   {
-    return $this->href($ep, ['mod' => $mod, 'hook' => $hook, 'op' => 'show', 'articleBox' => $articleBox, 'article' => $articleName, 'articlePage' => (int)$articlePage]);
+    return $this->href($ep, ['mod' => $mod, 'hook' => $hook, 'articleBox' => $articleBox, 'article' => $articleName, 'articlePage' => (int)$articlePage]);
   }
 
   /**
@@ -138,7 +138,7 @@ class cbLinkVF
    */
   public function cbBoxLink($ep, $mod, $hook, $articleBox, $boxPage = 0)
   {
-    return $this->href($ep, ['mod' => $mod, 'hook' => $hook, 'op' => 'show', 'articleBox' => $articleBox, 'boxPage' => (int)$boxPage]);
+    return $this->href($ep, ['mod' => $mod, 'hook' => $hook, 'articleBox' => $articleBox, 'boxPage' => (int)$boxPage]);
   }
 
   /**
@@ -152,7 +152,7 @@ class cbLinkVF
     {
       $articleName = (int)0;
     }
-    return $this->href($ep, ['mod' => $mod, 'hook' => $hook, 'op' => 'show', 'articleBox' => $articleBox, 'boxPage' => $articleName]);
+    return $this->href($ep, ['mod' => $mod, 'hook' => $hook, 'articleBox' => $articleBox, 'boxPage' => $articleName]);
   }
 }
 
