@@ -4,9 +4,10 @@ namespace cb\view\page;
 
 /**
   Base view
-  There are 2 types of functions:
-  1. functions that start with "draw" are public and actually dump content down the wire ("echo") - API
-  2. all other functions are internal. They should be protected and return content.
+  There are 3 types of functions:
+  1. functions that start with "draw" are PUBLIC and actually dump content down the wire ("ECHO") - API
+  2. functions that start with "render" are PUBLIC and RETURN stuff
+  2. all other functions are internal. They should be PROTECTED/PRIVATE and RETURN content.
 
   Also, dont't add stuff to the constructor -
   all views should have the same construction api
@@ -89,11 +90,11 @@ class cbBaseVP
    * execute a draw function dynamically
    * _________________________________________________________________
    */
-  public function exec($obj, $method)
+  public function exec($method)
   {
-    if (method_exists($obj, $method))
+    if (method_exists($this, $method))
     {
-      return $obj->$method();
+      return $this->$method();
     }
     else
     {

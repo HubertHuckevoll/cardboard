@@ -1,7 +1,7 @@
 <?php
 namespace cb\view\fragment;
 
-class cbArticleNavigationVF extends cbBaseVF
+trait cbArticleNavigationVF
 {
   public function render()
   {

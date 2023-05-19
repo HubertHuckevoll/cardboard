@@ -1,13 +1,13 @@
 <?php
 namespace cb\view\fragment;
 
-class cbSearchVF extends cbBaseVF
+trait cbSearchVF
 {
   /**
    * draw API
    * _________________________________________________________________
    */
-	public function render()
+	public function renderSearch()
 	{
 	  $none = true;
 

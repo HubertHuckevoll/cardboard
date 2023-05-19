@@ -1,13 +1,13 @@
 <?php
 namespace cb\view\fragment;
 
-class cbContactVF extends cbBaseVF
+trait cbContactVF
 {
   /**
    * Draw / API
    * _________________________________________________________________
    */
-  public function render()
+  public function renderContact()
   {
     $href = $this->ep.'?mod='.$this->mod.'.hook='.$this->hook.'&amp;op=showContactFormSubmitted&amp;articleBox='.$this->data['articleBox'].'&amp;article='.$this->data['articleName'].'&amp;articlePage='.$this->data['articlePage'];
     $status = '';

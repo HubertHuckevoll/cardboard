@@ -98,17 +98,6 @@ trait cbArticleClassicStyle1VF
    }
 
   /**
-   * render article body - abstract, overwrite me
-   * this MUST be public and RENDER so we have a way
-   * to just output the body in our children
-   * ________________________________________________________________
-   */
-  public function renderArticleBody()
-  {
-    return '';
-  }
-
-  /**
    * back link
    * ___________________________________________________________________
    */

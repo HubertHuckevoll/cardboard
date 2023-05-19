@@ -4,7 +4,7 @@ class cbCommentsM
 {
   public $articleBox = '';
   public $articleName = '';
-  
+
   public $commentsDir = '';
   public $comments = array();
 
@@ -86,6 +86,7 @@ class cbCommentsM
       {
         if (checkVar($this->toEmail, 'email'))
         {
+          $msg  = '';
           $msg .= 'Absender: '.$sender."\r\n\r\n";
           $msg .= 'Link: '."\r\n".$articleLink."\r\n\r\n";
           $msg .= 'Kommentar: '."\r\n".$message."\r\n\r\n";
@@ -119,12 +120,12 @@ class cbCommentsM
     if (count($this->comments[$article]) > 0)
     {
       array_splice($this->comments[$article], (int)$which, 1);
-      
+
       return $this->save($article);
     }
     return false; // failure
   }
-  
+
   /**
    * save
    * _________________________________________________________________
@@ -144,7 +145,7 @@ class cbCommentsM
     }
     return false;
   }
-  
+
   /**
    * set Email
    * _________________________________________________________________
@@ -162,7 +163,7 @@ class cbCommentsM
   {
     return $this->toEmail;
   }
-  
+
   /**
    * rename
    * _________________________________________________________________
@@ -197,7 +198,7 @@ class cbCommentsM
       }
     }
   }
-  
+
   /**
    * determine name of the current comments file
    * __________________________________________________________________
