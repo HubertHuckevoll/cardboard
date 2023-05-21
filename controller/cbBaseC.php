@@ -8,9 +8,9 @@ class cbBaseC
    * Konstruktor
    * _________________________________________________________________
    */
-  public function __construct($requestM = null)
+  public function __construct($requestM)
   {
-    $this->requestM = ($requestM !== null) ? $requestM : new cbRequestM();
+    $this->requestM = $requestM;
   }
 
   /**

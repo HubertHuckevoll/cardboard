@@ -15,7 +15,7 @@ class cbArticleCommentsC extends cbPageC
    * Konstruktor
    * _________________________________________________________________
    */
-  public function __construct($articleBox, $articleName, $linker = null, $requestM = null)
+  public function __construct($articleBox, $articleName, $linker, $requestM)
   {
     parent::__construct($linker, $requestM);
 

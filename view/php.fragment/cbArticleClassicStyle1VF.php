@@ -103,7 +103,7 @@ trait cbArticleClassicStyle1VF
    */
   protected function backLink()
   {
-    $backLinkLabel = 'zum Index von "'.$this->data['boxNameAlias'].'"';
+    $backLinkLabel = 'Zurück';
     $erg = '';
 
     if (isset($this->viewHints['backLinkHook']) && ($this->viewHints['backLinkHook'] != ''))

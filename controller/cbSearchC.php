@@ -4,15 +4,6 @@ class cbSearchC extends cbPageC
 {
 
   /**
-   * Konstruktor
-   * _________________________________________________________________
-   */
-  public function __construct($linker = null, $requestM = null)
-  {
-    parent::__construct($linker, $requestM);
-  }
-
-  /**
    * Search
    * _________________________________________________________________
    */

@@ -15,7 +15,7 @@ class cbArticleC extends cbPageC
    * Konstruktor
    * _________________________________________________________________
    */
-  function __construct($articleBox, $articleName, $linker = null, $requestM = null)
+  function __construct($articleBox, $articleName, $linker, $requestM)
   {
     parent::__construct($linker, $requestM);
 

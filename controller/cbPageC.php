@@ -10,7 +10,7 @@ class cbPageC extends cbBaseC
   public $view = null;
   public $ui = 'generic';
 
-  // linker is used for rewritting standard queries to routes
+  // linker is used for rewriting standard queries to routes
   public $linker = null;
 
   public $projectRootURL = ''; // Base - important for URL rewriting
@@ -21,7 +21,7 @@ class cbPageC extends cbBaseC
    * Konstruktor
    * _________________________________________________________________
    */
-  public function __construct($linker = null, $requestM = null)
+  public function __construct($linker, $requestM)
   {
     parent::__construct($requestM);
 

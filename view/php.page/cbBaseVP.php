@@ -6,7 +6,7 @@ namespace cb\view\page;
   Base view
   There are 3 types of functions:
   1. functions that start with "draw" are PUBLIC and actually dump content down the wire ("ECHO") - API
-  2. functions that start with "render" are PUBLIC and RETURN stuff
+  2. functions that start with "render" are PUBLIC and RETURN stuff - API
   2. all other functions are internal. They should be PROTECTED/PRIVATE and RETURN content.
 
   Also, dont't add stuff to the constructor -
@@ -34,10 +34,10 @@ class cbBaseVP
    * the linker can be replaced from outside
    * _________________________________________________________________
    */
-  public function __construct(array $viewHints, $linker = null)
+  public function __construct(array $viewHints, $linker)
   {
     $this->viewHints = $viewHints;
-    $this->linker = ($linker != null) ? $linker : new \cb\view\fragment\cbLinkVF();
+    $this->linker = $linker;
   }
 
   /**
@@ -106,13 +106,10 @@ class cbBaseVP
    * format date
    * _________________________________________________________________
    */
-  public function fDate($timestamp, $format = "%x")
+  public function fDate($timestamp, $format = "de_DE")
   {
-    //return @strftime($format, $timestamp);
-    $dt = new \DateTime();
-    $dt->setTimestamp($timestamp);
-
-    return $dt->format("r");
+    $formatter = new \IntlDateFormatter($format, \IntlDateFormatter::LONG, \IntlDateFormatter::NONE);
+    return $formatter->format($timestamp);
   }
 
   /**
@@ -141,20 +138,25 @@ class cbBaseVP
    */
   protected function msgBox($msg, $msgImg = 'info.png', $style = true)
   {
-    if ($msg instanceof \Exception) {
+    if ($msg instanceof \Exception)
+    {
       $msg = $msg->getMessage().'<br><br><strong>Trace</strong><br>'.str_replace("\n", '<br>', $msg->getTraceAsString());
     }
 
     $caption = pathinfo($msgImg, PATHINFO_FILENAME);
     $bc = '#bbb';
-    if ($caption == 'success') {
+    if ($caption == 'success')
+    {
       $bc = '#beb';
-    } elseif ($caption == 'error') {
+    }
+    elseif ($caption == 'error')
+    {
       $bc = '#ebb';
     }
     $caption = ucfirst($caption);
 
-    if ($style == true) {
+    if ($style == true)
+    {
       $erg = '<div style="border: 1px solid '.$bc.';
                           border-radius: 5px;
                           -moz-border-radius: 5px;
@@ -170,7 +172,9 @@ class cbBaseVP
                             margin-right: 10px;"></img>
                 <div style="margin-left: 50px;">'.$msg.'</div>
               </div>';
-    } else {
+    }
+    else
+    {
       $erg = '<div class="msgBox">
                 <img src="'.CB_IMG_ROOT.$msgImg.'"></img>
                 <div class="msgBoxCaption">'.$caption.'</div>

@@ -4,13 +4,19 @@ class cbRouterModHookC
 {
   protected string $mainControllerName = '';
   protected string $mainMethodName = '';
+  protected $requestM = null;
+  protected $linker = null;
 
   /**
    * Konstruktor
    * ________________________________________________________________
    */
-  public function __construct(string $mainControllerName, string $mainMethodName)
+  public function __construct(string $mainControllerName, string $mainMethodName, $linker = null, $requestM = null)
   {
+
+    $this->linker = ($linker !== null) ? $linker : new cbLinkVF();
+    $this->requestM = ($requestM !== null) ? $requestM : new cbRequestM();
+
     $this->mainControllerName = $mainControllerName;
     $this->mainMethodName = $mainMethodName;
   }
@@ -75,7 +81,7 @@ class cbRouterModHookC
 
     try
     {
-      $controllerObj = new $modName();
+      $controllerObj = new $modName($this->linker, $this->requestM);
 
       if ((isset($controllerObj) && method_exists($controllerObj, $methodName)))
       {

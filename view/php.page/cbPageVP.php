@@ -4,15 +4,6 @@ namespace cb\view\page;
 class cbPageVP extends cbBaseVP
 {
   /**
-   * Konstruktor
-   * ________________________________________________________________
-   */
-	public function __construct($viewHints, $linker = null)
-	{
-		parent::__construct($viewHints, $linker);
-	}
-
-  /**
    * head content
    * _________________________________________________________________
    */

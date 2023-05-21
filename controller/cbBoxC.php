@@ -13,7 +13,7 @@ class cbBoxC extends cbPageC
    * overwrite me!
    * _________________________________________________________________
    */
-  public function __construct($articleBox, $linker = null, $requestM = null)
+  public function __construct($articleBox, $linker, $requestM)
   {
     parent::__construct($linker, $requestM);
     $this->articleBox = $articleBox;
