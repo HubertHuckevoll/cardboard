@@ -47,7 +47,7 @@ class cbPageC extends cbBaseC
    * or a namespaced ui and view name: "view\generic\indexV"
    * _________________________________________________________________
    */
-  public function initView($uiViewName, $viewHints)
+  public function initView(string $uiViewName, array $viewHints)
   {
     // determine view name
     try
