@@ -98,7 +98,7 @@ class cbBaseVP
     }
     else
     {
-      throw new \Exception('Unknown function call "'.$method.'" for object "'.get_class($obj).'".');
+      throw new \Exception('Unknown function call "'.$method.'"');
     }
   }
 
@@ -106,9 +106,10 @@ class cbBaseVP
    * format date
    * _________________________________________________________________
    */
-  public function fDate($timestamp, $format = "de_DE")
+  public function fDate($timestamp)
   {
-    $formatter = new \IntlDateFormatter($format, \IntlDateFormatter::LONG, \IntlDateFormatter::NONE);
+    $locale = \Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+    $formatter = new \IntlDateFormatter($locale, \IntlDateFormatter::LONG, \IntlDateFormatter::NONE);
     return $formatter->format($timestamp);
   }
 
