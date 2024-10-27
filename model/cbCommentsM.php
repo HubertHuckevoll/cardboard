@@ -47,7 +47,7 @@ class cbCommentsM
    */
   public function getComments($article)
   {
-    return (array) $this->comments[$article];
+    return isset($this->comments[$article]) ? $this->comments[$article] : array();
   }
 
   /**
