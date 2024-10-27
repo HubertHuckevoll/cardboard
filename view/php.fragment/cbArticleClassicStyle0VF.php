@@ -18,7 +18,7 @@ class cbArticleClassicStyle0VF extends cbArticleFrameVF
    * constructor
    * ___________________________________________________________________
    */
-  function __construct($ep = '', $hook, $linker = null)
+  function __construct($ep, $hook, $linker = null)
   {
     parent::__construct($ep, $hook, $linker);
   }

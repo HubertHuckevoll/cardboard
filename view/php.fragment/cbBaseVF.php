@@ -32,7 +32,7 @@ class cbBaseVF
    * the linker can be replaced from outside
    * _________________________________________________________________
    */
-  public function __construct($ep = '', $hook, $linker = null)
+  public function __construct($ep, $hook, $linker = null)
   {
     $this->hook = $hook;
     $this->ep = ($ep != '') ? $ep : basename($_SERVER['SCRIPT_NAME']);

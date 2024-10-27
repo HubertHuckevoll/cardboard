@@ -7,7 +7,7 @@ class cbPageVP extends \cb\view\fragment\cbBaseVF
    * Konstruktor
    * ________________________________________________________________
    */
-	public function __construct($ep = '', $hook, $linker = null)
+	public function __construct($ep, $hook, $linker = null)
 	{
 		parent::__construct($ep, $hook, $linker);
 	}

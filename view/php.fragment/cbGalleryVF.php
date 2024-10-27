@@ -9,7 +9,7 @@ class cbGalleryVF extends cbBaseVF
    * Konstruktor
    * ___________________________________________________________________
    */
-  public function __construct($ep = '', $hook, $articleHook, $linker)
+  public function __construct($ep, $hook, $articleHook, $linker)
   {
     parent::__construct($ep, $hook, $linker);
 
