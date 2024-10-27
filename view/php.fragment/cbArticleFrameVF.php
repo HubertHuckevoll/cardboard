@@ -155,7 +155,7 @@ class cbArticleFrameVF extends cbBaseVF
 
 	  if (
 	      ($numOfPages > 1) &&
-	      ($this->viewHints['pageNumbers'] !== false)
+	      (isset($this->viewHints['pageNumbers']))
 	     )
 	  {
 	    $erg .= '<div class="cbPageController">';

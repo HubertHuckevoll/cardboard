@@ -97,7 +97,7 @@ class cbCommentsVF extends cbBaseVF
             $str .= $sender.' schrieb am '.date("d.m.y, H:i", $time).' Uhr';
           $str .= '</div>';
           $str .= '<div class="commentMsg">'.$msg.'</div>';
-          if ($comment['adminComment'] != '')
+          if (isset($comment['adminComment']) && ($comment['adminComment'] != ''))
           {
             $str .= '<div class="adminComment">';
               $str .= '<div class="adminCommentHead"><strong>'.$_SERVER['SERVER_NAME'].'</strong> merkt an:</div>';

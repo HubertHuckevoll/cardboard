@@ -71,8 +71,8 @@ class cbArticleM
     {
       foreach ($files as $file)
       {
-        if (stripos($file['fname'], $str) !== false) {$hit = $file['fname']; break;}
-        if (stripos($file['fileInfo'], $str) != false) { $hit = $file['fileInfo']; break;}
+        if (isset($file['fname']) && stripos($file['fname'], $str) !== false) {$hit = $file['fname']; break;}
+        if (isset($file['fileInfo']) && stripos($file['fileInfo'], $str) !== false) { $hit = $file['fileInfo']; break;}
       }
     }
 
@@ -81,8 +81,8 @@ class cbArticleM
     {
       foreach ($files as $file)
       {
-        if (stripos($file['fname'], $str) !== false) {$hit = $file['fname']; break;}
-        if (stripos($file['fileInfo'], $str) != false) { $hit = $file['fileInfo']; break;}
+        if (isset($file['fname']) && stripos($file['fname'], $str) !== false) {$hit = $file['fname']; break;}
+        if (isset($file['fileInfo']) && stripos($file['fileInfo'], $str) !== false) { $hit = $file['fileInfo']; break;}
       }
     }
 
@@ -91,8 +91,8 @@ class cbArticleM
     {
       foreach ($files as $file)
       {
-        if (stripos($file['fname'], $str) !== false) {$hit = $file['fname']; break;}
-        if (stripos($file['fileInfo'], $str) != false) { $hit = $file['fileInfo']; break;}
+        if (isset($file['fname']) && stripos($file['fname'], $str) !== false) {$hit = $file['fname']; break;}
+        if (isset($file['fileInfo']) && stripos($file['fileInfo'], $str) !== false) { $hit = $file['fileInfo']; break;}
       }
     }
     
@@ -101,15 +101,15 @@ class cbArticleM
     {
       foreach ($files as $file)
       {
-        if (stripos($file['fname'], $str) !== false) {$hit = $file['fname']; break;}
-        if (stripos($file['fileInfo'], $str) != false) { $hit = $file['fileInfo']; break;}
+        if (isset($file['fname']) && stripos($file['fname'], $str) !== false) {$hit = $file['fname']; break;}
+        if (isset($file['fileInfo']) && stripos($file['fileInfo'], $str) !== false) { $hit = $file['fileInfo']; break;}
       }
     }
     
     $textPages = (array) $this->getArticlePaginatedText();
-    foreach($textPages as $pageIdx => $textArr)
+    foreach ($textPages as $pageIdx => $textArr)
     {
-      foreach($textArr as $text)
+      foreach ($textArr as $text)
       {
         $text = strip_tags($text);
 

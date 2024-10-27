@@ -10,7 +10,7 @@ class cbBoxVF extends cbBaseVF
    * Konstruktor
    * ___________________________________________________________________
    */
-  public function __construct($ep = '', $hook, $articleHook, $linker = null)
+  public function __construct($ep, $hook, $articleHook, $linker = null)
   {
     parent::__construct($ep, $hook, $linker);
     $this->articleHook = $articleHook;
@@ -35,7 +35,7 @@ class cbBoxVF extends cbBaseVF
       {
         $http = $this->linker->cbArticleLink($this->ep, $this->articleHook, $artObj['articleBox'], $artObj['articleName']);
 
-        $teaserImg = $artObj['images'][0];
+        $teaserImg = (isset($artObj['images'][0])) ? $artObj['images'][0] : array();
 
         $erg .= '<div class="abcArticleOverviewCont">';
         if (isset($teaserImg['thumb']))
