@@ -46,7 +46,7 @@ class cbPageVP extends \cb\view\fragment\cbBaseVF
    */
   public function drawPage($errMsg = '')
   {
-    $erg .= '<!DOCTYPE html>
+    $erg  = '<!DOCTYPE html>
              <html>
                <head>
                  <base href="'.PROJECT_ROOT_URL.'"></base>
@@ -87,7 +87,7 @@ class cbPageVP extends \cb\view\fragment\cbBaseVF
    */
   public function drawErrorPage($errStr)
   {
-    $erg .= '<!DOCTYPE HTML>
+    $erg  = '<!DOCTYPE HTML>
              <html>
                <head>
                  <title>'.$this->data['pageTitle'].'</title>
