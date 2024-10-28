@@ -42,15 +42,15 @@ class cbBoxVF extends cbBaseVF
         {
           $erg .= '<div class="abcArticleOverviewImg">'.
                     '<a class="abcArticleOverviewImgA" href="'.$http.'">'.
-                      '<img src="'.$teaserImg['thumb'].'" alt="'.$teaserImg['thumb'].'" />'.
+                      '<img src="'.($teaserImg['thumb'] ?? '#').'" alt="'.($teaserImg['thumb'] ?? '#').'" />'.
                     '</a>'.
                   '</div>';
         }
         $erg .= '<div class="abcArticleOverview" style="'.$textPadding.'">'.
                   '<div class="abcArticleOverviewDate">'.$this->fDate($artObj['date']).'</div>'.
-                  '<div class="abcArticleOverviewHeadline"><a href="'.$http.'">'.$artObj['headline'].'</a></div>'.
+                  '<div class="abcArticleOverviewHeadline"><a href="'.$http.'">'.($artObj['headline'] ?? '').'</a></div>'.
                   '<div class="abcArticleOverviewAbstract">'.
-                    $artObj['aAbstract'].'...&nbsp;'.
+                    ($artObj['aAbstract'] ?? '').'...&nbsp;'.
                     '<a class="abcArticleOverviewMoreLink" href="'.$http.'">&raquo;</a>'.
                   '</div>'.
                 '</div>'.
@@ -72,7 +72,7 @@ class cbBoxVF extends cbBaseVF
   protected function pageNumbers()
   {
     $erg = '';
-    $page = $this->data['boxPage'];
+    $page = $this->data['boxPage'] ?? 0;
     $numOfPages = ceil($this->data['numArticles'] / $this->data['articlesPerPage']);
 
     if ($numOfPages > 1)

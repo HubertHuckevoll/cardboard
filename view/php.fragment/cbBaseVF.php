@@ -35,7 +35,7 @@ class cbBaseVF
   public function __construct($ep, $hook, $linker = null)
   {
     $this->hook = $hook;
-    $this->ep = ($ep != '') ? $ep : basename($_SERVER['SCRIPT_NAME']);
+    $this->ep = $ep ?? basename($_SERVER['SCRIPT_NAME']);
     $this->linker = ($linker != null) ? $linker : new cbLinkVF();
   }
 

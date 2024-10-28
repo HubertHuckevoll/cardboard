@@ -29,7 +29,7 @@ class cbArticleClassicStyle0VF extends cbArticleFrameVF
    */
   public function renderArticleBody()
   {
-    $page = (isset($this->data['articlePage'])) ? $this->data['articlePage'] : 0;
+    $page = $this->data['articlePage'] ?? 0;
     $pages = (array) $this->data['paginatedText'];
     $numOfPages = count($pages);
     $textArr = (array) $this->data['paginatedText'][$page];

@@ -36,11 +36,11 @@ class cbContactVF extends cbBaseVF
                   '</div>'.
                   '<div>'.
                     'Ihre E-Mail Adresse:<br />'.
-                    '<input type="text" name="senderMail" id="senderMail" value="'.htmlentities($this->data['senderMail']).'" />'.
+                    '<input type="text" name="senderMail" id="senderMail" value="'.htmlentities(($this->data['senderMail'] ?? '')).'" />'.
                   '</div>'.
                   '<div>'.
                     'Nachricht:<br />'.
-                    '<textarea name="message" id="message" rows="10">'.htmlentities($this->data['message']).'</textarea>'.
+                    '<textarea name="message" id="message" rows="10">'.htmlentities(($this->data['message'] ?? '')).'</textarea>'.
                   '</div>'.
                   '<div>'.
                     'Bitte geben Sie den Code so ein, wie Sie ihn auf dem Bild erkennen.<br />'.

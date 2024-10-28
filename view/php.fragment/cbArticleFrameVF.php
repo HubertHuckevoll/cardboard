@@ -100,7 +100,7 @@ class cbArticleFrameVF extends cbBaseVF
 	 */
 	 protected function headline()
 	 {
-	   $subTitle = isset($this->data['pagesInfo'][$this->data['articlePage']]) ?? '';
+	   $subTitle = $this->data['pagesInfo'][$this->data['articlePage']] ?? '';
 
 	   $erg = '<div class="articleHeadline">'.$this->data['headline'];
 	   if ($subTitle != '')
@@ -148,8 +148,8 @@ class cbArticleFrameVF extends cbBaseVF
    */
 	protected function pageNumbers()
 	{
-	  $page = $this->data['articlePage'];
-	  $pages = (array) $this->data['paginatedText'];
+	  $page = $this->data['articlePage'] ?? 0;
+	  $pages = $this->data['paginatedText'] ?? array();
 	  $numOfPages = count($pages);
 		$erg = '';
 

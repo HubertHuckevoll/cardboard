@@ -50,7 +50,7 @@ class cbPageVP extends \cb\view\fragment\cbBaseVF
              <html>
                <head>
                  <base href="'.PROJECT_ROOT_URL.'"></base>
-                 <title>'.$this->data['pageTitle'].' - '.$this->data['siteName'].'</title>
+                 <title>'.($this->data['pageTitle'] ?? 'Title').' - '.($this->data['siteName'] ?? 'Site Name').'</title>
 
                  <link rel="shortcut icon" href="favicon.ico" />
                  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -58,8 +58,8 @@ class cbPageVP extends \cb\view\fragment\cbBaseVF
                  <meta name="robots" content="index,follow" />
                  <meta http-equiv="expires" content="0" />
                  <meta name="revisit-after" content="7 days" />
-                 <meta name="keywords" content="'.$this->data['metaKeywords'].'" />
-                 <meta name="description" content="'.$this->data['metaDescription'].'" />
+                 <meta name="keywords" content="'.($this->data['metaKeywords'] ?? '').'" />
+                 <meta name="description" content="'.($this->data['metaDescription'] ?? '').'" />
 
                  <link rel="stylesheet" type="text/css" href="'.CB_CSS_ROOT.'cbBox.css" />
                  <link rel="stylesheet" type="text/css" href="'.CB_CSS_ROOT.'cbArticle.css" />
@@ -90,7 +90,7 @@ class cbPageVP extends \cb\view\fragment\cbBaseVF
     $erg  = '<!DOCTYPE HTML>
              <html>
                <head>
-                 <title>'.$this->data['pageTitle'].'</title>
+                 <title>'.($this->data['pageTitle'] ?? 'Error').'</title>
                  <link rel="shortcut icon" href="favicon.ico" />
                  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
                  <meta name="robots" content="no-follow" />

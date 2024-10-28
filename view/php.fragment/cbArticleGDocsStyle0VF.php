@@ -29,8 +29,8 @@ class cbArticleGDocsStyle0VF extends cbArticleFrameVF
    */
   public function renderArticleBody()
   {
-    $page = (isset($this->data['articlePage'])) ? $this->data['articlePage'] : 0;
-    $text = $this->data['paginatedText'][$page];
+    $page = $this->data['articlePage'] ?? 0;
+    $text = $this->data['paginatedText'][$page] ?? '';
     $erg = '';
 
     // Styles from GDocs

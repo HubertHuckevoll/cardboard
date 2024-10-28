@@ -149,15 +149,15 @@ class cbCommentsVF extends cbBaseVF
               '</div>'.
               '<div>'.
                  '<div class="commentCaption">Ihr Name:</div>'.
-                 '<input type="text" value="'.$this->data['sender'].'" name="sender" id="sender" />'.
+                 '<input type="text" value="'.($this->data['sender'] ?? '').'" name="sender" id="sender" />'.
               '</div>'.
               '<div>'.
                  '<div class="commentCaption">Ihr Kommentar:</div>'.
-                 '<textarea rows="15" name="message" id="message">'.$this->data['message'].'</textarea>'.
+                 '<textarea rows="15" name="message" id="message">'.($this->data['message'] ?? '').'</textarea>'.
               '</div>'.
               '<div>
                  Bitte geben Sie den Code so ein, wie Sie ihn auf dem Bild erkennen.<br />
-                 <img src="'.CB_ROOT.'captcha.php?t='.(microtime()*100).'" alt="Captcha"></img>&nbsp;
+                 <img src="'.CB_ROOT.'captcha.php?t='.(microtime(true) * 100).'" alt="Captcha"></img>&nbsp;
                  <input type="text" name="captcha" id="captcha" value="" />'.
               '</div>'.
               '<button type="submit">Hinzuf&uuml;gen</button>'.

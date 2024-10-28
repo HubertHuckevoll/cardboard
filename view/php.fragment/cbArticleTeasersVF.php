@@ -6,37 +6,40 @@ class cbArticleTeasersVF extends cbBaseVF
   public function render()
   {
     $str = '';
-
-    foreach ($this->data as $artObj)
+    
+    if (isset($this->data))
     {
-      $imgs = array_merge((array) $artObj['images'], (array) $artObj['inlineImages']);
-      $max = count($imgs)-1;
-
-      if ($max >= 0)
+      foreach ($this->data as $artObj)
       {
-        $x = mt_rand(0, $max);
-        $imgO = $imgs[$x];
-
-        if (isset($imgO['thumb']))
+        $imgs = array_merge(($artObj['images'] ?? array()), ($artObj['inlineImages'] ?? array()));
+        $max = count($imgs)-1;
+  
+        if ($max >= 0)
         {
-          $imgUrl = $imgO['thumb'];
+          $x = mt_rand(0, $max);
+          $imgO = $imgs[$x];
+  
+          if (isset($imgO['thumb']))
+          {
+            $imgUrl = $imgO['thumb'];
+          }
+          else
+          {
+            $imgUrl = $imgO;
+          }
+  
+          $href = $this->linker->cbArticleLink($this->ep, $this->hook, $artObj['articleBox'], $artObj['articleName']);
+  
+          $str .= '<figure class="cbArticleTeaser">'.
+                    '<a class="cbArticleTeaserLink" href="'.$href.'" title="'.$artObj['headline'].'">'.
+                      '<img class="cbArticleTeaserImg" src="'.$imgUrl.'" alt="'.$artObj['headline'].'">'.
+                    '</a>'.
+                    '<figcaption class="cbArticleTeaserAbstract">'.
+                      $artObj['aAbstract'].
+                    '</figcaption>'.
+                  '</figure>';
         }
-        else
-        {
-          $imgUrl = $imgO;
-        }
-
-        $href = $this->linker->cbArticleLink($this->ep, $this->hook, $artObj['articleBox'], $artObj['articleName']);
-
-        $str .= '<figure class="cbArticleTeaser">'.
-                  '<a class="cbArticleTeaserLink" href="'.$href.'" title="'.$artObj['headline'].'">'.
-                    '<img class="cbArticleTeaserImg" src="'.$imgUrl.'" alt="'.$artObj['headline'].'">'.
-                  '</a>'.
-                  '<figcaption class="cbArticleTeaserAbstract">'.
-                    $artObj['aAbstract'].
-                  '</figcaption>'.
-                '</figure>';
-      }
+      }  
     }
 
     return $str;
