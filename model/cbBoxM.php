@@ -107,7 +107,7 @@ class cbBoxM
    * get hiddenArticleList property, "speed-safe"
    * _________________________________________________________________
    */
-  public function getHiddenArticleList()
+  public function getHiddenArticleList(): array
   {
     if (count($this->hiddenArticleList) == 0)
     {
